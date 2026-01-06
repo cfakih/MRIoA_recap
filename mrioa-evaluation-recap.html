@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MRIoA + Outreach Evaluation Recap</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark: #120044;
+            --primary-darker: #030268;
+            --primary: #3028a1;
+            --primary-light: #5951ff;
+            --primary-lighter: #7a7fff;
+            --primary-lightest: #b3b0ff;
+            --primary-pale: #cdcbff;
+            --primary-faint: #f0f0ff;
+            --neutral-warm: #dcd7bf;
+            --neutral-light: #edeadd;
+            --neutral-lighter: #f7f5f2;
+            --text-dark: #1f1f1f;
+            --text-medium: #575757;
+            --text-light: #9d9d9d;
+            --gray-light: #d7d7d7;
+            --gray-lighter: #e6e6e6;
+            --gray-lightest: #f2f2f2;
+            --white-soft: #fbfbfb;
+            --white: #ffffff;
+            --warning: #ff6b35;
+            --success: #4caf50;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--white);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: var(--white);
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        .header .meta {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-top: 10px;
+        }
+
+        /* Navigation Tabs */
+        .nav-tabs {
+            display: flex;
+            background: var(--white);
+            border-radius: 12px;
+            padding: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            overflow-x: auto;
+            flex-wrap: wrap;
+        }
+
+        .nav-tab {
+            flex: 1;
+            padding: 15px 20px;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            color: var(--text-medium);
+            position: relative;
+            min-width: 120px;
+        }
+
+        .nav-tab.active {
+            background: var(--primary);
+            color: var(--white);
+            box-shadow: 0 2px 8px rgba(48, 40, 161, 0.3);
+        }
+
+        .nav-tab:hover:not(.active) {
+            background: var(--primary-faint);
+            color: var(--primary);
+        }
+
+        .nav-tab .tab-number {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--gray-lighter);
+            color: var(--text-medium);
+            line-height: 24px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-right: 8px;
+        }
+
+        .nav-tab.active .tab-number {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        /* Content Sections */
+        .content-section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Cards */
+        .card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-left: 4px solid var(--primary);
+        }
+
+        .card h2 {
+            color: var(--primary-dark);
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            color: var(--primary);
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            margin-top: 20px;
+        }
+
+        .card h4 {
+            color: var(--primary-dark);
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            margin-top: 15px;
+        }
+
+        .card p {
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .card ul, .card ol {
+            margin: 15px 0 15px 20px;
+            line-height: 1.8;
+        }
+
+        .card li {
+            margin-bottom: 8px;
+        }
+
+        /* Highlight Boxes */
+        .highlight-box {
+            background: var(--primary-faint);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid var(--primary);
+        }
+
+        .highlight-box.warning {
+            background: #fff4e6;
+            border-left-color: var(--warning);
+        }
+
+        .highlight-box.success {
+            background: #e8f5e9;
+            border-left-color: var(--success);
+        }
+
+        .highlight-box h3, .highlight-box h4 {
+            margin-top: 0;
+        }
+
+        /* Quote Boxes */
+        .quote-box {
+            background: var(--gray-lightest);
+            padding: 15px 20px;
+            border-left: 3px solid var(--primary);
+            border-radius: 6px;
+            margin: 15px 0;
+            font-style: italic;
+        }
+
+        .quote-box .quote-author {
+            display: block;
+            margin-top: 8px;
+            font-style: normal;
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 14px;
+        }
+
+        /* Stakeholder Accordion */
+        .stakeholder-accordion {
+            margin: 20px 0;
+        }
+
+        .stakeholder-item {
+            background: var(--white);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            overflow: hidden;
+        }
+
+        .stakeholder-header {
+            padding: 20px;
+            cursor: pointer;
+            background: var(--primary-faint);
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .stakeholder-header:hover {
+            background: var(--primary-pale);
+        }
+
+        .stakeholder-header.active {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .stakeholder-title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .stakeholder-role {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-top: 4px;
+        }
+
+        .stakeholder-content {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .stakeholder-content.active {
+            padding: 20px;
+            max-height: 3000px;
+        }
+
+        .toggle-icon {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Problem/Solution Boxes */
+        .problem-boxes, .solution-boxes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .problem-box, .solution-box {
+            background: var(--white);
+            border: 2px solid var(--primary-pale);
+            border-radius: 8px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .problem-box:hover {
+            border-color: var(--warning);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .problem-box.active {
+            border-color: var(--warning);
+            background: #fff4e6;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .solution-box:hover {
+            border-color: var(--success);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .solution-box.active {
+            border-color: var(--success);
+            background: #e8f5e9;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .problem-box h4, .solution-box h4 {
+            margin: 0 0 8px 0;
+            font-size: 16px;
+        }
+
+        .problem-box h4 {
+            color: var(--warning);
+        }
+
+        .solution-box h4 {
+            color: var(--success);
+        }
+
+        .problem-box p, .solution-box p {
+            margin: 0;
+            font-size: 14px;
+            color: var(--text-medium);
+        }
+
+        .problem-content, .solution-content {
+            margin: 20px 0;
+        }
+
+        .problem-detail, .solution-detail {
+            display: none;
+        }
+
+        .problem-detail.active, .solution-detail.active {
+            display: block;
+        }
+
+        /* State Comparison Boxes */
+        .state-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .state-box {
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .state-box.current {
+            background: #ffebee;
+            border-left: 4px solid #d32f2f;
+        }
+
+        .state-box.future {
+            background: #e8f5e9;
+            border-left: 4px solid #388e3c;
+        }
+
+        .state-box h4 {
+            margin-top: 0;
+        }
+
+        /* Solution List */
+        .solution-list {
+            margin: 20px 0;
+        }
+
+        .solution-item {
+            background: var(--primary-faint);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 3px solid var(--primary);
+        }
+
+        .solution-item strong {
+            color: var(--primary);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        /* Impact Metrics Table */
+        .impact-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .impact-table th {
+            background: var(--primary-faint);
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--primary-dark);
+            border-bottom: 2px solid var(--primary-pale);
+        }
+
+        .impact-table td {
+            padding: 12px;
+            border-bottom: 1px solid var(--gray-lighter);
+        }
+
+        .impact-table tr:hover {
+            background: var(--gray-lightest);
+        }
+
+        .impact-table .savings {
+            font-weight: 600;
+            color: var(--success);
+        }
+
+        /* Timeline Table */
+        .timeline-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .timeline-table th {
+            background: var(--primary-faint);
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--primary-dark);
+            border-bottom: 2px solid var(--primary-pale);
+        }
+
+        .timeline-table td {
+            padding: 12px;
+            border-bottom: 1px solid var(--gray-lighter);
+        }
+
+        .timeline-table tr:hover {
+            background: var(--gray-lightest);
+        }
+
+        .timeline-table a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .timeline-table a:hover {
+            text-decoration: underline;
+        }
+
+        /* Resources Grid */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .resource-card {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border-left: 3px solid var(--primary-light);
+            transition: all 0.3s ease;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        }
+
+        .resource-card h4 {
+            color: var(--primary-dark);
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .resource-card .date {
+            color: var(--text-medium);
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .resource-card a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .resource-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-tabs {
+                flex-direction: column;
+            }
+            
+            .nav-tab {
+                margin-bottom: 5px;
+            }
+            
+            .state-comparison {
+                grid-template-columns: 1fr;
+            }
+            
+            .problem-boxes, .solution-boxes {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>MRIoA + Outreach Evaluation Recap</h1>
+        <p>Executive Briefing: What We've Learned & How Outreach Solves Our Challenges</p>
+        <div class="meta">
+            <strong>Prepared for:</strong> Keith (SVP Sales) | <strong>Date:</strong> January 2025 | <strong>Prepared by:</strong> Breanna, Marilyn, Chris, Lori
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Navigation Tabs -->
+        <div class="nav-tabs">
+            <div class="nav-tab active" data-tab="executive">
+                <span class="tab-number">1</span>
+                Executive Summary
+            </div>
+            <div class="nav-tab" data-tab="timeline">
+                <span class="tab-number">2</span>
+                Evaluation Timeline
+            </div>
+            <div class="nav-tab" data-tab="stakeholders">
+                <span class="tab-number">3</span>
+                Stakeholders
+            </div>
+            <div class="nav-tab" data-tab="problems">
+                <span class="tab-number">4</span>
+                Problems
+            </div>
+            <div class="nav-tab" data-tab="solutions">
+                <span class="tab-number">5</span>
+                Solutions
+            </div>
+            <div class="nav-tab" data-tab="impact">
+                <span class="tab-number">6</span>
+                Business Impact
+            </div>
+            <div class="nav-tab" data-tab="conclusion">
+                <span class="tab-number">7</span>
+                Conclusion
+            </div>
+            <div class="nav-tab" data-tab="resources">
+                <span class="tab-number">8</span>
+                Resources
+            </div>
+        </div>
+
+        <!-- Executive Summary Section -->
+        <div id="executive" class="content-section active">
+            <div class="card">
+                <h2>Executive Summary</h2>
+                <p>MRIoA is evaluating Outreach to replace Salesforce Engage (expires mid-2026) and consolidate our fragmented sales technology stack. This evaluation was initiated proactively, recognizing that our current tool ecosystem has created significant workflow inefficiencies across Business Development, Sales, and Customer Success teams. Over the course of four discovery and demo sessions, the evaluation team conducted a thorough assessment of how Outreach addresses the specific challenges we face today.</p>
+                
+                <p>The evaluation process revealed a clear pattern: our teams are spending disproportionate amounts of time on administrative tasks, manual research, and navigating between disconnected systems. BD reps spend 10 minutes preparing for each call and navigate 15 clicks in Salesforce just to log basic activity. CS managers invest hours compiling account intelligence from multiple sources before QBRs. Sales teams lack visibility into what other teams are doing, leading to duplicate outreach and missed handoff opportunities. These inefficiencies compound daily, costing hours per rep per week that could be dedicated to actual selling and strategic account work.</p>
+
+                <p>What emerged from our evaluation is that Outreach isn't just a replacement for Salesforce Engage—it's a unified platform that addresses workflow inefficiencies across all three teams while providing the trusted metrics and visibility that leadership needs. The platform consolidates functionality that's currently scattered across multiple tools, automates manual processes that consume rep time, and creates the cross-functional visibility that's been missing. Most importantly, it provides the systematic approach to renewal management, lead prioritization, and account intelligence that will enable our 2026 strategic goals around white space expansion.</p>
+
+                <div class="highlight-box">
+                    <h3>Bottom Line</h3>
+                    <p>Outreach addresses critical workflow inefficiencies across BD, Sales, and CS teams while providing the trusted metrics and visibility leadership needs. The evaluation demonstrates clear ROI through time savings, tool consolidation, and systematic automation that will enable our teams to focus on what matters: building relationships, closing deals, and expanding accounts.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Evaluation Timeline Section -->
+        <div id="timeline" class="content-section">
+            <div class="card">
+                <h2>Evaluation Timeline & Resources</h2>
+                <p>Over the course of 4 detailed sessions, we've explored Outreach's capabilities and validated how it addresses our specific challenges.</p>
+                
+                <table class="timeline-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Call Type</th>
+                            <th>Focus</th>
+                            <th>Recording</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>12/12</strong></td>
+                            <td>Discovery 1</td>
+                            <td>Identified tool sprawl, team silos, broken cadences</td>
+                            <td><a href="https://hello.outreach.io/s/KN5OYpGMrkw" target="_blank">Watch Recording →</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>12/16</strong></td>
+                            <td>Discovery 2</td>
+                            <td>CS pain points, manual research, no renewal automation</td>
+                            <td><a href="https://hello.outreach.io/s/vP5HOpjsjT0" target="_blank">Watch Recording →</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>12/20</strong></td>
+                            <td>Demo Part 1</td>
+                            <td>Smart Account Plans, automation triggers, AI research</td>
+                            <td><a href="https://hello.outreach.io/s/jLJHMr-kn_Y" target="_blank">Watch Recording →</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>1/6</strong></td>
+                            <td>Demo Part 2</td>
+                            <td>Task execution, reporting, conversation intelligence</td>
+                            <td><a href="https://hello.outreach.io/s/TtFKcb3gYyQ" target="_blank">Watch Recording →</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="highlight-box">
+                    <h3>Comprehensive Overview</h3>
+                    <p>For a full evaluation recap and platform introduction, see our <a href="https://eng7e.seismic.com/ls/3ee9cbbb-2106-43ae-9dbc-cfeba6ba95d1/Wkz4wENhA-EdezUP" target="_blank" style="color: var(--primary); font-weight: 600;">comprehensive overview document</a>.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stakeholders Section -->
+        <div id="stakeholders" class="content-section">
+            <div class="card">
+                <h2>Stakeholders & What They Care About</h2>
+                <p>Here's what we've learned about each person involved in this evaluation and what Outreach addresses for them.</p>
+                
+                <div class="stakeholder-accordion">
+                    <!-- Breanna -->
+                    <div class="stakeholder-item">
+                        <div class="stakeholder-header" onclick="toggleStakeholder(this)">
+                            <div>
+                                <div class="stakeholder-title">Breanna Legler</div>
+                                <div class="stakeholder-role">Marketing | Virginia</div>
+                            </div>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="stakeholder-content">
+                            <h4>Primary Concerns</h4>
+                            <ul>
+                                <li>Tool consolidation (currently juggling Pardot, Zoominfo, Sales Engage, Sales Navigator, Power BI)</li>
+                                <li>Lead routing automation and prioritization</li>
+                                <li>Cross-team visibility to prevent duplicate outreach</li>
+                                <li>Clean data and standardized processes</li>
+                            </ul>
+                            
+                            <div class="quote-box">
+                                "We're getting lost in all the different tools..."
+                                <span class="quote-author">— Breanna Legler</span>
+                            </div>
+
+                            <h4>How Outreach Addresses Breanna's Needs</h4>
+                            <p>Trigger-based automation that routes leads by source/title, persona filtering for campaigns, unified activity timeline</p>
+                        </div>
+                    </div>
+
+                    <!-- Marilyn -->
+                    <div class="stakeholder-item">
+                        <div class="stakeholder-header" onclick="toggleStakeholder(this)">
+                            <div>
+                                <div class="stakeholder-title">Marilyn Davis</div>
+                                <div class="stakeholder-role">Director of Sales Operations | Annapolis, Maryland</div>
+                            </div>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="stakeholder-content">
+                            <h4>Primary Concerns</h4>
+                            <ul>
+                                <li>Salesforce integration reliability and data quality</li>
+                                <li>Executive reporting for board meetings</li>
+                                <li>Reducing admin burden on reps</li>
+                                <li>Data enrichment and maintaining contact accuracy</li>
+                            </ul>
+                            
+                            <div class="quote-box">
+                                "It's all right there at their fingertips... we will get better data."
+                                <span class="quote-author">— Marilyn Davis</span>
+                            </div>
+
+                            <h4>How Outreach Addresses Marilyn's Needs</h4>
+                            <p>2-minute Salesforce sync with error monitoring, customizable dashboards, automatic activity logging, invalid number tracking visible to all teams</p>
+                        </div>
+                    </div>
+
+                    <!-- Chris -->
+                    <div class="stakeholder-item">
+                        <div class="stakeholder-header" onclick="toggleStakeholder(this)">
+                            <div>
+                                <div class="stakeholder-title">Chris Brandl</div>
+                                <div class="stakeholder-role">Business Development & Marketing | Texas</div>
+                            </div>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="stakeholder-content">
+                            <h4>Primary Concerns</h4>
+                            <ul>
+                                <li>Trusted metrics and reporting ("data rich, information poor" today)</li>
+                                <li>Lead scoring by problem/intent, not just email opens</li>
+                                <li>Account intelligence and penetration visibility (deep and wide)</li>
+                                <li>Deal control and qualification structure</li>
+                                <li>ROI justification through time savings and tool consolidation</li>
+                            </ul>
+                            
+                            <div class="quote-box">
+                                "This looks a heck of a lot easier than what I just saw in a PowerPoint [showing our 15-click Salesforce process]."
+                                <span class="quote-author">— Chris Brandl</span>
+                            </div>
+
+                            <h4>How Outreach Addresses Chris's Needs</h4>
+                            <p>Sequence performance reporting with pipeline attribution, persona filtering using ML, time savings analysis (8 min/call), email sentiment tracking for re-engagement</p>
+                        </div>
+                    </div>
+
+                    <!-- Lori -->
+                    <div class="stakeholder-item">
+                        <div class="stakeholder-header" onclick="toggleStakeholder(this)">
+                            <div>
+                                <div class="stakeholder-title">Lori Paulin</div>
+                                <div class="stakeholder-role">BD/CS (Former Outreach User)</div>
+                            </div>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="stakeholder-content">
+                            <h4>Primary Concerns</h4>
+                            <ul>
+                                <li>Workflow efficiency for high-volume calling</li>
+                                <li>Visibility into account history across teams</li>
+                                <li>Easy meeting scheduling with SVPs</li>
+                                <li>Reducing time spent on research and navigation</li>
+                            </ul>
+                            
+                            <div class="quote-box">
+                                "This puts everything you have to go into one thing... I foresee this being a big help."
+                                <span class="quote-author">— Lori Paulin</span>
+                            </div>
+
+                            <h4>How Outreach Addresses Lori's Needs</h4>
+                            <p>Single workspace eliminating tab-switching, integrated Sales Navigator, live calendar booking during calls</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Problems Section -->
+        <div id="problems" class="content-section">
+            <div class="card">
+                <h2>Current State: Problems Costing Us Time & Money</h2>
+                <p>Here are the 7 critical gaps we've identified that are impacting productivity and revenue.</p>
+                
+                <div class="problem-boxes">
+                    <div class="problem-box active" data-problem="problem1">
+                        <h4>1. Manual, Time-Consuming Workflows</h4>
+                        <p>10 minutes to prep for a call, 15 clicks to log activity</p>
+                    </div>
+                    <div class="problem-box" data-problem="problem2">
+                        <h4>2. Team Silos</h4>
+                        <p>Zero cross-functional visibility, duplicate outreach</p>
+                    </div>
+                    <div class="problem-box" data-problem="problem3">
+                        <h4>3. Zero Renewal Automation</h4>
+                        <p>No proactive triggers, contracts sneak up</p>
+                    </div>
+                    <div class="problem-box" data-problem="problem4">
+                        <h4>4. Broken Lead Follow-Up</h4>
+                        <p>No prioritization, outdated cadences</p>
+                    </div>
+                    <div class="problem-box" data-problem="problem5">
+                        <h4>5. Hours of Manual Research</h4>
+                        <p>CS team spending hours per account</p>
+                    </div>
+                    <div class="problem-box" data-problem="problem6">
+                        <h4>6. Lack of Trusted Metrics</h4>
+                        <p>Manual compilation, no pipeline attribution</p>
+                    </div>
+                    <div class="problem-box" data-problem="problem7">
+                        <h4>7. Unused Salesforce Bolt-Ons</h4>
+                        <p>Paying for features we don't use</p>
+                    </div>
+                </div>
+
+                <div class="problem-content">
+                    <!-- Problem 1 -->
+                    <div id="problem1-content" class="problem-detail active">
+                        <h3>Problem 1: Manual, Time-Consuming Workflows</h3>
+                        
+                        <h4>Current State</h4>
+                        <ul>
+                            <li><strong>10 minutes to prepare for a single call</strong> (per Angela's documented process)</li>
+                            <li><strong>15 clicks in Salesforce</strong> to log activity, update fields, mark invalid numbers</li>
+                            <li>Manual compilation of reports for board meetings</li>
+                            <li>Hours spent researching accounts before QBRs (per Sarah's team)</li>
+                        </ul>
+                        
+                        <h4>Business Impact</h4>
+                        <ul>
+                            <li>Reps spend more time on admin than selling</li>
+                            <li>"Pencil whipping" data entry to get through it (quality suffers)</li>
+                            <li>Inconsistent call documentation ("good meeting" notes with no detail)</li>
+                        </ul>
+
+                        <div class="quote-box">
+                            "It takes 10 minutes just to get ready to make a call."
+                            <span class="quote-author">— Breanna</span>
+                        </div>
+                        <div class="quote-box">
+                            "If you have 15 clicks, you may just pencil whip a couple of them to get through it."
+                            <span class="quote-author">— Chris</span>
+                        </div>
+                    </div>
+
+                    <!-- Problem 2 -->
+                    <div id="problem2-content" class="problem-detail">
+                        <h3>Problem 2: Team Silos with Zero Cross-Functional Visibility</h3>
+                        
+                        <h4>Current State</h4>
+                        <ul>
+                            <li>BD, Sales, and CS work in isolation</li>
+                            <li>No visibility into who contacted whom, when, about what</li>
+                            <li>Duplicate outreach to same contacts by different teams</li>
+                            <li>Missed handoff opportunities when transitioning accounts</li>
+                        </ul>
+                        
+                        <h4>Business Impact</h4>
+                        <ul>
+                            <li>Confused prospects receiving multiple calls from different teams</li>
+                            <li>Lost context when CS takes over from Sales (have to ask rep to recap)</li>
+                            <li>Wasted effort on contacts already being worked</li>
+                        </ul>
+
+                        <div class="quote-box">
+                            "We want to say, 'Lori just talked with this person 2 days ago—I don't need to reach out.'"
+                            <span class="quote-author">— Breanna</span>
+                        </div>
+                    </div>
+
+                    <!-- Problem 3 -->
+                    <div id="problem3-content" class="problem-detail">
+                        <h3>Problem 3: Zero Renewal Automation</h3>
+                        
+                        <h4>Current State</h4>
+                        <ul>
+                            <li>No proactive triggers at 120/90/60/30 days before renewal</li>
+                            <li>No Salesforce reports tracking upcoming contract expirations</li>
+                            <li>Evergreen contracts mean renewals "sneak up" on CS team</li>
+                            <li>Reactive instead of proactive account management</li>
+                        </ul>
+                        
+                        <h4>Business Impact</h4>
+                        <ul>
+                            <li>Missed expansion opportunities</li>
+                            <li>Risk of churn due to lack of early intervention</li>
+                            <li>CS team unable to systematically manage white space expansion (2026 strategic goal)</li>
+                        </ul>
+
+                        <div class="quote-box">
+                            "There is nothing that I know of that has a list of all clients and all of their contract expiration dates."
+                            <span class="quote-author">— Lori</span>
+                        </div>
+                        <div class="quote-box">
+                            "We don't have anything that I know of for [at-risk account tracking] either."
+                            <span class="quote-author">— Lori</span>
+                        </div>
+                    </div>
+
+                    <!-- Problem 4 -->
+                    <div id="problem4-content" class="problem-detail">
+                        <h3>Problem 4: Broken Lead Follow-Up & No Prioritization</h3>
+                        
+                        <h4>Current State</h4>
+                        <ul>
+                            <li>MQLs defined as any email open (Chris: "not really an MQL")</li>
+                            <li>Leads recycle 3x in queues, cluttering pipelines</li>
+                            <li>Outdated cadences limited to email/phone (no LinkedIn, SMS)</li>
+                            <li>No scoring model to prioritize demo requests over white paper downloads</li>
+                            <li>Inconsistent execution ("3-4 days of calls then nothing")</li>
+                        </ul>
+                        
+                        <h4>Business Impact</h4>
+                        <ul>
+                            <li>Low-quality leads waste BD time</li>
+                            <li>High-value leads get lost in noise</li>
+                            <li>Can't measure what messaging converts</li>
+                            <li>"Call the crap out of leads" with no structure or tracking</li>
+                        </ul>
+
+                        <div class="quote-box">
+                            "Data rich, information poor."
+                            <span class="quote-author">— Chris</span>
+                        </div>
+                    </div>
+
+                    <!-- Problem 5 -->
+                    <div id="problem5-content" class="problem-detail">
+                        <h3>Problem 5: Hours of Manual Account Research</h3>
+                        
+                        <h4>Current State</h4>
+                        <ul>
+                            <li>CS manager spends hours compiling intel before account reviews</li>
+                            <li>Data scattered across Salesforce, Power BI, LinkedIn, proprietary tools</li>
+                            <li>No centralized view of relationships, usage patterns, or risk signals</li>
+                            <li>Manual relationship mapping ("who has relationship with whom?")</li>
+                        </ul>
+                        
+                        <h4>Business Impact</h4>
+                        <ul>
+                            <li>CS team time consumed by research instead of strategic account work</li>
+                            <li>Inconsistent account knowledge across team</li>
+                            <li>Can't scale proactive CS approach needed for 2026 expansion</li>
+                        </ul>
+
+                        <div class="quote-box">
+                            "There are a lot of different places in Salesforce that we kind of have to click into to gather information."
+                            <span class="quote-author">— Lori</span>
+                        </div>
+                    </div>
+
+                    <!-- Problem 6 -->
+                    <div id="problem6-content" class="problem-detail">
+                        <h3>Problem 6: Lack of Trusted Metrics & Reporting</h3>
+                        
+                        <h4>Current State</h4>
+                        <ul>
+                            <li>Manual data compilation for board reports (Randy's Friday spreadsheets)</li>
+                            <li>Can't filter campaigns by persona (titles are deceiving, mapping is manual)</li>
+                            <li>No visibility into which sequences/messaging drives pipeline</li>
+                            <li>Triangulating between systems for basic insights</li>
+                        </ul>
+                        
+                        <h4>Business Impact</h4>
+                        <ul>
+                            <li>Leadership can't make data-driven decisions</li>
+                            <li>Can't justify marketing/sales investments with ROI data</li>
+                            <li>Missed optimization opportunities (don't know what's working)</li>
+                        </ul>
+
+                        <div class="quote-box">
+                            "We care about the wins and how we got there."
+                            <span class="quote-author">— Marilyn</span>
+                        </div>
+                    </div>
+
+                    <!-- Problem 7 -->
+                    <div id="problem7-content" class="problem-detail">
+                        <h3>Problem 7: Unused Salesforce Bolt-Ons We're Paying For</h3>
+                        
+                        <h4>Current State</h4>
+                        <ul>
+                            <li>Einstein features purchased but not adopted</li>
+                            <li>Multiple plugins that don't integrate well</li>
+                            <li>High cost, low utilization</li>
+                        </ul>
+                        
+                        <h4>Business Impact</h4>
+                        <ul>
+                            <li>Wasted spend on tools that don't get used</li>
+                            <li>Complexity without benefit</li>
+                        </ul>
+
+                        <div class="quote-box">
+                            "We bought some of those features and functions internally, we don't use them."
+                            <span class="quote-author">— Chris</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Solutions Section -->
+        <div id="solutions" class="content-section">
+            <div class="card">
+                <h2>How Outreach Solves These Problems</h2>
+                <p>Here's how Outreach specifically addresses each of the 7 problems we've identified.</p>
+                
+                <div class="solution-boxes">
+                    <div class="solution-box active" data-solution="solution1">
+                        <h4>1. Streamlined Task Execution</h4>
+                        <p>15 clicks → 2 clicks, 10 min → 2 min</p>
+                    </div>
+                    <div class="solution-box" data-solution="solution2">
+                        <h4>2. Smart Account Plans</h4>
+                        <p>Unified cross-team visibility</p>
+                    </div>
+                    <div class="solution-box" data-solution="solution3">
+                        <h4>3. Renewal Automation</h4>
+                        <p>Trigger-based sequences</p>
+                    </div>
+                    <div class="solution-box" data-solution="solution4">
+                        <h4>4. Intelligent Lead Routing</h4>
+                        <p>Prioritization & multi-channel</p>
+                    </div>
+                    <div class="solution-box" data-solution="solution5">
+                        <h4>5. AI-Powered Research</h4>
+                        <p>Hours → minutes</p>
+                    </div>
+                    <div class="solution-box" data-solution="solution6">
+                        <h4>6. Trusted Reporting</h4>
+                        <p>Pipeline attribution & analytics</p>
+                    </div>
+                    <div class="solution-box" data-solution="solution7">
+                        <h4>7. Tool Consolidation</h4>
+                        <p>Replace unused bolt-ons</p>
+                    </div>
+                </div>
+
+                <div class="solution-content">
+                    <!-- Solution 1 -->
+                    <div id="solution1-content" class="solution-detail active">
+                        <h3>Solution 1: Streamlined Task Execution</h3>
+                        
+                        <h4>What Outreach Does</h4>
+                        <ul>
+                            <li><strong>15 clicks → 2 clicks</strong> to complete call, log activity, book meeting</li>
+                            <li><strong>10 minutes → 2 minutes</strong> to prep for and execute a call</li>
+                            <li>Integrated dialer with live calendar booking</li>
+                            <li>Automatic activity logging (no manual entry ever again)</li>
+                            <li>Mark invalid numbers once, visible to all teams</li>
+                            <li>Queue up 50 tasks, fly through in 30 minutes vs. hours</li>
+                        </ul>
+                        
+                        <h4>Impact</h4>
+                        <ul>
+                            <li><strong>8-10 minutes saved per call</strong> × call volume = hours back per rep per week</li>
+                            <li>Higher data quality (no more "pencil whipping" entries)</li>
+                            <li>No more "good meeting" notes—automatic call recording and transcription</li>
+                        </ul>
+
+                        <div class="quote-box">
+                            "Add that up with whatever their call allotment is for the week, that's going to significantly impact."
+                            <span class="quote-author">— Breanna</span>
+                        </div>
+                    </div>
+
+                    <!-- Solution 2 -->
+                    <div id="solution2-content" class="solution-detail">
+                        <h3>Solution 2: Smart Account Plans - Unified Cross-Team Visibility</h3>
+                        
+                        <h4>What Outreach Does</h4>
+                        <ul>
+                            <li>360° account view showing ALL activity from BD, Sales, CS in one timeline</li>
+                            <li>AI summaries: Ask "what matters to this account?" and get instant answers</li>
+                            <li>Custom views by team (CS: renewals in 90 days, BD: closed-lost opps)</li>
+                            <li>Activity heatmaps showing engagement patterns</li>
+                        </ul>
+                        
+                        <h4>Impact</h4>
+                        <ul>
+                            <li>Eliminate duplicate outreach (see "Lori called yesterday")</li>
+                            <li>Seamless handoffs with full context</li>
+                            <li>Managers can audit any account in seconds, not hours</li>
+                        </ul>
+
+                        <div class="quote-box">
+                            "This puts everything you have to go into one thing."
+                            <span class="quote-author">— Lori</span>
+                        </div>
+                    </div>
+
+                    <!-- Solution 3 -->
+                    <div id="solution3-content" class="solution-detail">
+                        <h3>Solution 3: Trigger-Based Renewal Automation</h3>
+                        
+                        <h4>What Outreach Does</h4>
+                        <ul>
+                            <li>Read renewal date field in Salesforce</li>
+                            <li>Automatically trigger sequences at 120/90/60/30 days before renewal</li>
+                            <li>QBR scheduling automation</li>
+                            <li>Usage data triggers (if Power BI metrics pushed to Salesforce)</li>
+                        </ul>
+                        
+                        <h4>Impact</h4>
+                        <ul>
+                            <li>Systematic renewal management (no contracts sneaking up)</li>
+                            <li>Proactive CS instead of reactive firefighting</li>
+                            <li>Enables 2026 white space expansion strategy</li>
+                        </ul>
+                    </div>
+
+                    <!-- Solution 4 -->
+                    <div id="solution4-content" class="solution-detail">
+                        <h3>Solution 4: Intelligent Lead Routing & Prioritization</h3>
+                        
+                        <h4>What Outreach Does</h4>
+                        <ul>
+                            <li>Automation triggers by lead source + title: Demo request (exec) → high-touch sequence with calendar link in 2 minutes</li>
+                            <li>White paper download → automated nurture</li>
+                            <li>Smart Views filter by engagement, priority, lead score</li>
+                            <li>Multi-channel sequences (email → call → LinkedIn → SMS)</li>
+                        </ul>
+                        
+                        <h4>Impact</h4>
+                        <ul>
+                            <li>High-value leads get immediate attention</li>
+                            <li>Low-value leads get touched without wasting rep time</li>
+                            <li>Measurable conversion rates by sequence/campaign</li>
+                        </ul>
+                    </div>
+
+                    <!-- Solution 5 -->
+                    <div id="solution5-content" class="solution-detail">
+                        <h3>Solution 5: AI-Powered Account Research</h3>
+                        
+                        <h4>What Outreach Does</h4>
+                        <ul>
+                            <li>Gemini AI research agent auto-enriches accounts with external data (news, funding, leadership changes)</li>
+                            <li>AI account summaries from all emails, calls, meetings ("What pain points has this account mentioned?")</li>
+                            <li>Runs on schedule or on-demand</li>
+                        </ul>
+                        
+                        <h4>Impact</h4>
+                        <ul>
+                            <li>Hours → minutes for account prep</li>
+                            <li>Consistent intelligence across team</li>
+                            <li>Scalable CS approach</li>
+                        </ul>
+
+                        <div class="quote-box">
+                            "Two years ago our CS manager showed all of the data you could get... she said it takes hours."
+                            <span class="quote-author">— Breanna</span>
+                        </div>
+                    </div>
+
+                    <!-- Solution 6 -->
+                    <div id="solution6-content" class="solution-detail">
+                        <h3>Solution 6: Trusted Reporting & Analytics</h3>
+                        
+                        <h4>What Outreach Does</h4>
+                        <ul>
+                            <li>Sequence performance with pipeline attribution (which campaigns drive revenue)</li>
+                            <li>Persona filtering using ML (auto-groups "Chief Compliance Officer" into C-Suite)</li>
+                            <li>User activity dashboards (prospects added, calls made, overdue tasks)</li>
+                            <li>Email sentiment analysis (track objections to re-engage systematically)</li>
+                            <li>Customizable reports for board meetings (no more manual compilation)</li>
+                        </ul>
+                        
+                        <h4>Impact</h4>
+                        <ul>
+                            <li>Data-driven optimization of messaging and campaigns</li>
+                            <li>ROI justification for marketing/sales investments</li>
+                            <li>Executive visibility without manual work</li>
+                        </ul>
+
+                        <div class="quote-box">
+                            "This basically solves all of our metrics."
+                            <span class="quote-author">— Chris</span>
+                        </div>
+                        <div class="quote-box">
+                            "This answers what we were talking about this morning."
+                            <span class="quote-author">— Breanna (regarding tracking BD activity properly)</span>
+                        </div>
+                    </div>
+
+                    <!-- Solution 7 -->
+                    <div id="solution7-content" class="solution-detail">
+                        <h3>Solution 7: Tool Consolidation</h3>
+                        
+                        <h4>What Outreach Replaces/Adds</h4>
+                        <ul>
+                            <li><strong>Replaces:</strong> Salesforce Engage (expiring mid-2026)</li>
+                            <li><strong>Replaces:</strong> Unused Einstein features we're paying for</li>
+                            <li><strong>Adds:</strong> Conversation intelligence (Kaia) - call recording, transcription, AI summaries</li>
+                            <li><strong>Adds:</strong> Deal health scoring and risk flags</li>
+                            <li><strong>Adds:</strong> Native dialer (no separate vendor)</li>
+                            <li><strong>Adds:</strong> Unified reporting suite</li>
+                        </ul>
+                        
+                        <h4>Impact</h4>
+                        <ul>
+                            <li>Reduce vendor management overhead</li>
+                            <li>Eliminate wasted spend on unused features</li>
+                            <li>One platform for BD, Sales, CS (vs. 5+ disconnected tools)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Business Impact Section -->
+        <div id="impact" class="content-section">
+            <div class="card">
+                <h2>Business Impact Summary</h2>
+                
+                <h3>Time Savings</h3>
+                <table class="impact-table">
+                    <thead>
+                        <tr>
+                            <th>Activity</th>
+                            <th>Current State</th>
+                            <th>With Outreach</th>
+                            <th>Savings</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Call setup & logging</td>
+                            <td>10 minutes</td>
+                            <td>2 minutes</td>
+                            <td class="savings"><strong>8 min/call</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Account research (CS)</td>
+                            <td>Hours</td>
+                            <td>Minutes</td>
+                            <td class="savings"><strong>Hours/account</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Report compilation</td>
+                            <td>Manual (hours)</td>
+                            <td>Automated dashboards</td>
+                            <td class="savings"><strong>Hours/week</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Lead prioritization</td>
+                            <td>Manual sorting</td>
+                            <td>AI-powered Smart Views</td>
+                            <td class="savings"><strong>30+ min/day</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="highlight-box success">
+                    <h3>Total Impact</h3>
+                    <p>Each rep gains <strong>1-2 hours per day</strong> for actual selling/strategic work</p>
+                </div>
+
+                <h3>Revenue Impact</h3>
+                <ul>
+                    <li><strong>Better lead quality = higher conversion rates</strong> (prioritize demo requests over opens)</li>
+                    <li><strong>Systematic renewals = reduced churn</strong> (proactive vs. reactive CS)</li>
+                    <li><strong>Account intelligence = expansion opportunities</strong> (identify white space systematically)</li>
+                    <li><strong>Pipeline attribution = optimize what works</strong> (measure ROI of every campaign)</li>
+                </ul>
+
+                <h3>Data Quality & Compliance</h3>
+                <ul>
+                    <li>Automatic activity capture (no "pencil whipping")</li>
+                    <li>Standardized call documentation (AI summaries vs. "good meeting" notes)</li>
+                    <li>One-party recording compliance for regulated states</li>
+                    <li>Invalid number tracking (marked once, visible to all)</li>
+                </ul>
+
+                <h3>Strategic Enablement</h3>
+                <ul>
+                    <li><strong>2026 White Space Expansion:</strong> CS team can systematically identify and pursue opportunities</li>
+                    <li><strong>National Sales Conference:</strong> Unified platform for entire sales org</li>
+                    <li><strong>New Leadership Onboarding:</strong> Keith inherits clean processes and trusted data</li>
+                    <li><strong>Board Reporting:</strong> Executive dashboards without manual compilation</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Conclusion Section -->
+        <div id="conclusion" class="content-section">
+            <div class="card">
+                <h2>Conclusion & Recommendation</h2>
+                <p>The evaluation team recommends moving forward with Outreach based on:</p>
+                
+                <ol>
+                    <li><strong>Clear, quantifiable time savings</strong> (8-10 min/call, hours on research, reporting automation)</li>
+                    <li><strong>Solves critical pain points</strong> across all three teams (BD, Sales, CS)</li>
+                    <li><strong>Tool consolidation ROI</strong> (replace expiring Sales Engage + unused Einstein features)</li>
+                    <li><strong>Strategic alignment</strong> with 2026 expansion goals and National Sales Conference timing</li>
+                    <li><strong>Comprehensive evaluation</strong> validated through 4 detailed sessions with all key stakeholders</li>
+                </ol>
+
+                <h3>Next Steps</h3>
+                <ol>
+                    <li>Keith reviews evaluation findings and platform overview with Chance</li>
+                    <li>Chris briefs Megan (CEO) on strategic importance</li>
+                    <li>Define final scope and user count (~30 users: 10-15 BD, 15-20 Sales, 8-10 CS)</li>
+                    <li>IT security review kickoff (6-8 week process - documentation already provided)</li>
+                    <li>Implementation planning for phased rollout before mid-2026 contract expiration</li>
+                </ol>
+
+                <div class="highlight-box success">
+                    <h3>✅ The Path Forward</h3>
+                    <p>Outreach addresses critical workflow inefficiencies across BD, Sales, and CS teams while providing the trusted metrics and visibility leadership needs. The team has strong conviction this solves problems costing us hours per rep per week.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resources Section -->
+        <div id="resources" class="content-section">
+            <div class="card">
+                <h2>Resources & Call Recordings</h2>
+                <p>All evaluation session recordings for review and reference.</p>
+                
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <h4>Discovery 1</h4>
+                        <div class="date"><strong>December 12</strong></div>
+                        <p>Identified tool sprawl, team silos, broken cadences</p>
+                        <a href="https://hello.outreach.io/s/KN5OYpGMrkw" target="_blank">Watch Recording →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Discovery 2</h4>
+                        <div class="date"><strong>December 16</strong></div>
+                        <p>CS pain points, manual research, no renewal automation</p>
+                        <a href="https://hello.outreach.io/s/vP5HOpjsjT0" target="_blank">Watch Recording →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Demo Part 1</h4>
+                        <div class="date"><strong>December 20</strong></div>
+                        <p>Smart Account Plans, automation triggers, AI research</p>
+                        <a href="https://hello.outreach.io/s/jLJHMr-kn_Y" target="_blank">Watch Recording →</a>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Demo Part 2</h4>
+                        <div class="date"><strong>January 6</strong></div>
+                        <p>Task execution, reporting, conversation intelligence</p>
+                        <a href="https://hello.outreach.io/s/TtFKcb3gYyQ" target="_blank">Watch Recording →</a>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <h3>Additional Resources</h3>
+                    <p><strong>Discovery Recap:</strong> <a href="https://eng7e.seismic.com/ls/3ee9cbbb-2106-43ae-9dbc-cfeba6ba95d1/Wkz4wENhA-EdezUP" target="_blank" style="color: var(--primary); font-weight: 600;">Comprehensive discovery recap document</a></p>
+                    <p><strong>Security Documentation:</strong> Already shared with Breanna for IT review</p>
+                    <p><strong>Questions?</strong> Reach out to Breanna, Marilyn, or Chris from evaluation team</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab Navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.nav-tab');
+            const sections = document.querySelectorAll('.content-section');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const targetTab = this.getAttribute('data-tab');
+                    
+                    tabs.forEach(t => t.classList.remove('active'));
+                    sections.forEach(s => s.classList.remove('active'));
+                    
+                    this.classList.add('active');
+                    document.getElementById(targetTab).classList.add('active');
+                });
+            });
+
+            // Problem Boxes
+            const problemBoxes = document.querySelectorAll('.problem-box');
+            const problemDetails = document.querySelectorAll('.problem-detail');
+
+            problemBoxes.forEach(box => {
+                box.addEventListener('click', function() {
+                    const problem = this.getAttribute('data-problem');
+                    
+                    problemBoxes.forEach(b => b.classList.remove('active'));
+                    problemDetails.forEach(d => d.classList.remove('active'));
+                    
+                    this.classList.add('active');
+                    document.getElementById(problem + '-content').classList.add('active');
+                });
+            });
+
+            // Solution Boxes
+            const solutionBoxes = document.querySelectorAll('.solution-box');
+            const solutionDetails = document.querySelectorAll('.solution-detail');
+
+            solutionBoxes.forEach(box => {
+                box.addEventListener('click', function() {
+                    const solution = this.getAttribute('data-solution');
+                    
+                    solutionBoxes.forEach(b => b.classList.remove('active'));
+                    solutionDetails.forEach(d => d.classList.remove('active'));
+                    
+                    this.classList.add('active');
+                    document.getElementById(solution + '-content').classList.add('active');
+                });
+            });
+
+            // Stakeholder Accordion
+            window.toggleStakeholder = function(header) {
+                const content = header.nextElementSibling;
+                const icon = header.querySelector('.toggle-icon');
+                
+                if (content.classList.contains('active')) {
+                    content.classList.remove('active');
+                    icon.textContent = '+';
+                    header.classList.remove('active');
+                } else {
+                    document.querySelectorAll('.stakeholder-content.active').forEach(item => {
+                        item.classList.remove('active');
+                        item.previousElementSibling.classList.remove('active');
+                        item.previousElementSibling.querySelector('.toggle-icon').textContent = '+';
+                    });
+                    
+                    content.classList.add('active');
+                    icon.textContent = '-';
+                    header.classList.add('active');
+                }
+            };
+        });
+    </script>
+</body>
+</html>
+
